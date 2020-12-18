@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column          | Type   | Options      |
-| --------------- | ------ | -------------|
-| nickname        | text   | null: false  |
-| email           | string | null: false  |
-| password        | string | null: false  |
-| last_name       | text   | null: false  |
-| first_name      | text   | null: false  |
-| last_name_kana  | text   | null: false  |
-| first_name_kana | text   | null: false  |
-| birth_date      | integer| null: false  |
+| Column             | Type   | Options      |
+| ------------------ | ------ | ------------ |
+| nickname           | text   | null: false  |
+| email              | string | null: false  |
+| encrypted_password | string | null: false  |
+| last_name          | string | null: false  |
+| first_name         | string | null: false  |
+| last_name_kana     | string | null: false  |
+| first_name_kana    | string | null: false  |
+| birth_date         | date   | null: false  |
 
 ### Association
 
@@ -21,17 +21,17 @@
 
 ## items テーブル
 
-| Column                   | Type       | Options                        |
-| ------------------------ | ---------- | ------------------------------ |
-| item_name                | text       | null: false                    |
-| item_info                | text       | null: false                    |
-| item_category            | integer    | null: false                    |
-| item_sales_status        | integer    | null: false                    |
-| item_shipping_fee_status | integer    | null: false                    |
-| item_prefecture          | integer    | null: false                    |
-| item_scheduled_delivery  | integer    | null: false                    |
-| item_price               | string     | null: false                    |
-| user                     | references | null: false, foreign_key: true |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| item_name           | string     | null: false                    |
+| item_info           | text       | null: false                    |
+| category            | integer    | null: false                    |
+| sales_status        | integer    | null: false                    |
+| shipping_fee_status | integer    | null: false                    |
+| prefecture          | integer    | null: false                    |
+| scheduled_delivery  | integer    | null: false                    |
+| price               | string     | null: false                    |
+| user                | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -48,7 +48,8 @@
 
 ### Association
 
-- belongs_to :user, :item
+- belongs_to :user
+- belongs_to :item
 - has one :address
 
 ## addresses テーブル
