@@ -144,7 +144,7 @@
             <%= item.name %>
           </h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br><%= item.shipping_fee_status.name %></span>
+            <span><%= item.price %>円<br><%= item.s_status.name %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
@@ -154,12 +154,14 @@
         <% end %>
        </li>
       <%end%>
-      <%end%>
+     <%end%>
 
-     <% if @items = nil %>  
+     <% if @items[0] == nil %>  
       <li class='list'>
         <%= link_to '#' do %>
-        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+        <div class='item-img-content'>
+          <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+        </div>
         <div class='item-info'>
           <h3 class='item-name'>
             商品を出品してね！
