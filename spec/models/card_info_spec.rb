@@ -12,6 +12,13 @@ RSpec.describe CardInfo, type: :model do
     expect(@order).to be_valid
   end
 
+  it "user_idとitem_idが無い状態では保存できない" do
+    @order.user_id = nil
+    @order.item_id = nil
+    @order.valid?
+    expect(@order.errors.full_messages).to include "Item can't be blank", "User can't be blank"
+  end
+
   it "配送先の郵便番号についての情報が空では保存できない" do
     @order.postal_code = ""
     @order.valid?

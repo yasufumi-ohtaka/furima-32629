@@ -8,7 +8,7 @@ class CardInfo
   end
 
   with_options presence: true do
-    validates :postal_code, :city, :addresses, :phone_number, :token
+    validates :item_id, :user_id, :postal_code, :city, :addresses, :phone_number, :token
   end
 
   validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'Input correctly' }
