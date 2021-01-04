@@ -5,6 +5,7 @@ FactoryBot.define do
     prefecture_id {Faker::Number.between(from:2, to:48)}
     city {Gimei.address.city.kanji}
     addresses {Faker::Lorem.sentence}
+    building {Faker::Lorem.sentence}
     phone_number {"00000000"}
     association :user
     association :item
