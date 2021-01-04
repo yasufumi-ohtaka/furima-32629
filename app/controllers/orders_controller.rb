@@ -4,9 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @order = CardInfo.new
-    if current_user == @item.user
-      redirect_to root_path
-    elsif @item.order != nil
+    if current_user == @item.user || @item.order != nil
       redirect_to root_path
     end
   end
